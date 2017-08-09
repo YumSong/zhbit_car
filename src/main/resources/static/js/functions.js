@@ -15,46 +15,46 @@ $(document).ready(function(){
 				'</div>' +
 				'<div class="modal-body">' +
 				    '<div class="row template-skins">' +
-					'<a data-skin="skin-blur-violate" class="col-sm-2 col-xs-4" href="">' +
+					'<a data-skin="skin-blur-violate" data-map="grayscale" class="col-sm-2 col-xs-4" href="">' +
 					    '<img src="img/skin-violate.jpg" alt="">' +
 					'</a>' +
-					'<a data-skin="skin-blur-lights" class="col-sm-2 col-xs-4" href="">' +
+					'<a data-skin="skin-blur-lights" data-map="dark" class="col-sm-2 col-xs-4" href="">' +
 					    '<img src="img/skin-lights.jpg" alt="">' +
 					'</a>' +
-					'<a data-skin="skin-blur-city" class="col-sm-2 col-xs-4" href="">' +
+					'<a data-skin="skin-blur-city" data-map="hardedge" class="col-sm-2 col-xs-4" href="">' +
 					    '<img src="img/skin-city.jpg" alt="">' +
 					'</a>' +
-					'<a data-skin="skin-blur-greenish" class="col-sm-2 col-xs-4" href="">' +
+					/*'<a data-skin="skin-blur-greenish" class="col-sm-2 col-xs-4" href="">' +
 					    '<img src="img/skin-greenish.jpg" alt="">' +
-					'</a>' +
-					'<a data-skin="skin-blur-night" class="col-sm-2 col-xs-4" href="">' +
+					'</a>' +*/
+					'<a data-skin="skin-blur-night" data-map="midnight" class="col-sm-2 col-xs-4" href="">' +
 					    '<img src="img/skin-night.jpg" alt="">' +
 					'</a>' +
-					'<a data-skin="skin-blur-blue" class="col-sm-2 col-xs-4" href="">' +
+					'<a data-skin="skin-blur-blue" data-map="bluish" class="col-sm-2 col-xs-4" href="">' +
 					    '<img src="img/skin-blue.jpg" alt="">' +
 					'</a>' +
-					'<a data-skin="skin-blur-sunny" class="col-sm-2 col-xs-4" href="">' +
+					'<a data-skin="skin-blur-sunny" data-map="normal" class="col-sm-2 col-xs-4" href="">' +
 					    '<img src="img/skin-sunny.jpg" alt="">' +
 					'</a>' +
-					'<a data-skin="skin-cloth" class="col-sm-2 col-xs-4" href="">' +
+					/*'<a data-skin="skin-cloth" class="col-sm-2 col-xs-4" href="">' +
 					    '<img src="img/skin-cloth.jpg" alt="">' +
-					'</a>' +
-					'<a data-skin="skin-tectile" class="col-sm-2 col-xs-4" href="">' +
+					'</a>' +*/
+					'<a data-skin="skin-tectile" data-map="redalert" class="col-sm-2 col-xs-4" href="">' +
 					    '<img src="img/skin-tectile.jpg" alt="">' +
 					'</a>' +
-					'<a data-skin="skin-blur-chrome" class="col-sm-2 col-xs-4" href="">' +
+					'<a data-skin="skin-blur-chrome" data-map="light" class="col-sm-2 col-xs-4" href="">' +
 					    '<img src="img/skin-chrome.jpg" alt="">' +
 					'</a>' +
-					'<a data-skin="skin-blur-ocean" class="col-sm-2 col-xs-4" href="">' +
+					'<a data-skin="skin-blur-ocean" data-map="darkgreen" class="col-sm-2 col-xs-4" href="">' +
 					    '<img src="img/skin-ocean.jpg" alt="">' +
 					'</a>' +
-					'<a data-skin="skin-blur-sunset" class="col-sm-2 col-xs-4" href="">' +
+					'<a data-skin="skin-blur-sunset" data-map="pink" class="col-sm-2 col-xs-4" href="">' +
 					    '<img src="img/skin-sunset.jpg" alt="">' +
 					'</a>' +
-					'<a data-skin="skin-blur-yellow" class="col-sm-2 col-xs-4" href="">' +
+					'<a data-skin="skin-blur-yellow" data-map="googlelite" class="col-sm-2 col-xs-4" href="">' +
 					    '<img src="img/skin-yellow.jpg" alt="">' +
 					'</a>' +
-					'<a  data-skin="skin-blur-kiwi"class="col-sm-2 col-xs-4" href="">' +
+					'<a  data-skin="skin-blur-kiwi" data-map="grassgreen" class="col-sm-2 col-xs-4" href="">' +
 					    '<img src="img/skin-kiwi.jpg" alt="">' +
 					'</a>' +
 				    '</div>' +
@@ -67,6 +67,8 @@ $(document).ready(function(){
     $('body').on('click', '.template-skins > a', function(e){
 	e.preventDefault();
 	var skin = $(this).data('skin');
+	var map_style = $(this).data('map');
+	map.setMapStyle({style:map_style});
 	$('body').attr('id', skin);
 	$('#changeSkin').modal('hide');
     });

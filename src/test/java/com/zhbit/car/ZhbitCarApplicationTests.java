@@ -3,11 +3,16 @@ package com.zhbit.car;
 import com.zhbit.car.service.AsyncTaskService;
 import com.zhbit.car.service.ScheduleTaskService;
 import com.zhbit.car.service.impl.AsyncTaskServiceImpl;
+import com.zhbit.car.util.SpringUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.test.context.junit4.SpringRunner;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
 import javax.annotation.Resource;
 
@@ -20,6 +25,9 @@ public class ZhbitCarApplicationTests {
 
 	@Resource
 	public ScheduleTaskService scheduleTaskService;
+
+	@Autowired
+	private JedisPool jedisPools;
 
 	@Test
 	public void contextLoads() {
@@ -52,8 +60,11 @@ public class ZhbitCarApplicationTests {
 	 */
 	@Test
 	public void test2(){
+
 		scheduleTaskService.fixTimeExecution();
+
 		scheduleTaskService.reportCurrentTime();
+
 		while (true){
 
 			try {
@@ -68,6 +79,15 @@ public class ZhbitCarApplicationTests {
 
 		}
 
+	}
+
+	@Test
+	public void tess3(){
+
+		Jedis jedis = jedisPools.getResource();
+
+		jedis.set("test3","123");
 
 	}
+
 }

@@ -236,6 +236,7 @@ public class ShiroConfig {
      * （由于我们的密码校验交给Shiro的SimpleAuthenticationInfo进行处理了
      *  所以我们需要修改下doGetAuthenticationInfo中的代码;
      * ）
+     *
      * @return
      */
     @Bean
@@ -255,6 +256,7 @@ public class ShiroConfig {
     /**
      *  开启shiro aop注解支持.
      *  使用代理方式;所以需要开启代码支持;
+     *
      * @param securityManager
      * @return
      */

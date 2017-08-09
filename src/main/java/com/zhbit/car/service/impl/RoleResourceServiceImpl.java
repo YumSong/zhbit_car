@@ -14,6 +14,7 @@ import tk.mybatis.mapper.entity.Example;
  */
 @Service("roleResourceService")
 public class RoleResourceServiceImpl extends BaseService<RoleResources> implements RoleResourceService {
+
     @Override
     @Transactional(propagation= Propagation.REQUIRED,readOnly=false,rollbackFor={Exception.class})
     @CacheEvict(cacheNames="resources", allEntries=true)
